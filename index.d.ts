@@ -325,7 +325,7 @@ declare module binaryen {
     addGlobal(name: string, type: Type, mutable: boolean, init: Expression): Global;
     addFunctionImport(internalName: string, externalModuleName: string, externalBaseName: string, functionType: FunctionType): Import;
     addTableImport(internalName: string, externalModuleName: string, externalBaseName: string): Import;
-    addMemoryImport(internalName: string, externalModuleName: string, externalBaseName: string): Import;
+    addMemoryImport(internalName: string, externalModuleName: string, externalBaseName: string, sharedMemoryMax?: number): Import;
     addGlobalImport(internalName: string, externalModuleName: string, externalBaseName: string, globalType: Type): Import;
     removeImport(internalName: string): void;
     addFunctionExport(internalName: string, externalName: string): Export;
@@ -334,7 +334,7 @@ declare module binaryen {
     addGlobalExport(internalName: string, externalName: string): Export;
     removeExport(externalName: string): void;
     setFunctionTable(funcs: number[]): void;
-    setMemory(initial: number, maximum: number, exportName?: string | null, segments?: MemorySegment[]): void;
+    setMemory(initial: number, maximum: number, exportName?: string | null, segments?: MemorySegment[], shared?: boolean): void;
     setStart(start: binaryen.Function): void;
 
     emitBinary(): Uint8Array;

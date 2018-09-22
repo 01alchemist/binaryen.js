@@ -2,3 +2,5 @@ node_modules/
 npm-debug.*
 index.js.mem
 shared.bc
+.vscode
+.history
